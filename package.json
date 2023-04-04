@@ -1,0 +1,27 @@
+{
+  "name": "book-library",
+  "version": "1.0.0",
+  "description": "Cool book app",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server",
+    "build": "rollup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CHOPAZ/Book-Library.git"
+  },
+  "keywords": [
+    "books"
+  ],
+  "author": "Pavel Kvasnickiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CHOPAZ/Book-Library/issues"
+  },
+  "homepage": "https://github.com/CHOPAZ/Book-Library#readme",
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "rollup": "^3.20.2"
+  }
+}
