@@ -17,11 +17,11 @@ export class Header extends DivComponent {
       <div class="menu">
         <a class="menu__item" href="#">
           <img src="/static/search.svg" alt="Search" />
-          Поиск кнги
-        </a>
-        <a class="menu__item" href="#favorites">
+          <p>Поиск кнги</p>
+          </a>
+          <a class="menu__item" href="#favorites">
           <img src="/static/favorite.svg" alt="Favorites" />
-          Избранное
+          <p>Избранное</p>
           <div class="menu__counter">
           ${this.appState.favorites.length}
           </div>

@@ -25,6 +25,10 @@
   color: var(--black);
 }
 
+.menu__item:hover {
+  font-weight: 700;
+}
+
 .menu__counter {
   font-weight: 600;
   font-size: 12px;
