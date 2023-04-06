@@ -10,20 +10,20 @@ class App {
   ];
   /* Глобальный стейт */
   appState = {
-    favorites: []
-  }
+    favorites: [],
+  };
   constructor() {
     window.addEventListener('hashchange', this.route.bind(this)); //обработка смены хэш
     this.route();
   }
 
   route() {
-    if( this.currentView) {
-      this.currentView.destroy()
+    if (this.currentView) {
+      this.currentView.destroy();
     }
-    const view = this.routes.find((r) => r.path === location.hash).view; //получение страницы
+    const view = this.routes.find((r) => r.path == location.hash).view; //получение страницы
     this.currentView = new view(this.appState);
-    this.currentView.render()
+    this.currentView.render();
   }
 }
 
