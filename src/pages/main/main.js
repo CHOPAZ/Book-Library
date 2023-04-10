@@ -35,7 +35,6 @@ export class MainView extends AbstractView {
         this.state.offset
       );
       this.state.loading = false;
-      console.log(data);
       this.state.numFound = data.numFound;
       this.state.list = data.docs;
     }
