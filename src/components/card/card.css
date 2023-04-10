@@ -11,13 +11,9 @@
   padding-top: 10px;
   justify-content: center;
   align-items: start;
-  height: 140px;
+  height: 180px;
 }
 
-.card__img img {
-  width: 91px;
-  height: 142px;
-}
 
 .card__info {
   display: flex;
