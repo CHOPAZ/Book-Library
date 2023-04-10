@@ -7,6 +7,7 @@ import { CardList } from '../../components/card-list/card-list.js';
 export class MainView extends AbstractView {
   state = {
     list: [], //
+    numFound: 0, //Кол-во найденных книг
     loading: false, // состояние загрузки
     searchQuery: undefined, // запрос
     offset: 0, // пагинация
@@ -34,11 +35,13 @@ export class MainView extends AbstractView {
         this.state.offset
       );
       this.state.loading = false;
+      console.log(data);
+      this.state.numFound = data.numFound;
       this.state.list = data.docs;
     }
 
-    if(path === 'list' || path === 'loading') {
-      this.render()
+    if (path === 'list' || path === 'loading') {
+      this.render();
     }
   }
 
@@ -54,7 +57,6 @@ export class MainView extends AbstractView {
     const main = document.createElement('div');
     main.append(new Search(this.state).render());
     main.append(new CardList(this.appState, this.state).render());
-
     this.app.innerHTML = '';
     this.app.append(main);
     this.renderHeader();
