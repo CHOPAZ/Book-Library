@@ -10,11 +10,17 @@ export class Card extends DivComponent {
 
   render() {
     this.el.classList.add('card');
-    const existedFavorites = this.appState.favorites.find(b => b.key == this.cardState.key)
- 
+    const existedFavorites = this.appState.favorites.find(
+      (b) => b.key == this.cardState.key
+    );
+
     this.el.innerHTML = `
       <div class="card__img">
-        ${this.cardState.cover_edition_key ? `<img src ="https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-M.jpg" alt="Обложка"/>` : 'Не задано'}
+        ${
+          this.cardState.cover_edition_key
+            ? `<img src ="https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-M.jpg" alt="Обложка"/>`
+            : '<img src="#" alt="Не задано"/>'
+        }
       </div>
       <div class="card__info">
         <div class="card__tag">
@@ -24,19 +30,26 @@ export class Card extends DivComponent {
           ${this.cardState.title}
         </div>
         <div class="card__author">
-          ${this.cardState.author_name ? this.cardState.author_name : 'Не задано'}
+          ${
+            this.cardState.author_name
+              ? this.cardState.author_name
+              : 'Не задано'
+          }
         </div>
         <div class="card__footer">
-          <button class="button__add ${existedFavorites ? 'button__add_active' : ''}">
-              ${existedFavorites
+          <button class="button__add ${
+            existedFavorites ? 'button__add_active' : ''
+          }">
+              ${
+                existedFavorites
                   ? '<img src="/static/favorite.svg" alt="favorites"/>'
-                  : '<img src="/static/favorite-white.svg" alt="favorites-w"/>'}
+                  : '<img src="/static/favorite-white.svg" alt="favorites-w"/>'
+              }
           </button>
         </div>
       </div>
-    `
+    `;
 
-    return this.el
-
+    return this.el;
   }
 }
