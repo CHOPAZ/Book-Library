@@ -2,11 +2,16 @@
 
 import onChange from 'on-change';
 import { MainView } from './pages/main/main.js';
+import { FavoritesView } from './pages/favorites/favorites.js';
 class App {
   routes = [
     {
       path: '',
       view: MainView,
+    },
+    {
+      path: '#favorites',
+      view: FavoritesView,
     },
   ];
   /* Глобальный стейт */
