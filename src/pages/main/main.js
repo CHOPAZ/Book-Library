@@ -20,6 +20,13 @@ export class MainView extends AbstractView {
     this.state = onChange(this.state, this.stateHook.bind(this));
     this.setTitle('Поиск книг');
   }
+
+  /* Отмена подписок */
+  destroy() {
+    onChange.unsubscribe(this.appState);
+    onChange.unsubscribe(this.state);
+  }
+  
   /* Метод после обновления appState*/
   appStateHook(path) {
     if (path === 'favorites') {
