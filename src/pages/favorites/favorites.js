@@ -24,10 +24,13 @@ export class FavoritesView extends AbstractView {
   }
 
   render() {
-    const main = document.createElement('div');
-    main.append(new CardList(this.appState, {list: this.appState.favorites}).render());
+    const favorites = document.createElement('div');
+    favorites.innerHTML = `
+    <h1>Мои книги</h1>
+    `;
+    favorites.append(new CardList(this.appState, {list: this.appState.favorites}).render());
     this.app.innerHTML = '';
-    this.app.append(main);
+    this.app.append(favorites);
     this.renderHeader();
   }
 
