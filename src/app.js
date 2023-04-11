@@ -1,5 +1,6 @@
 /* Routing */
 
+import onChange from 'on-change';
 import { MainView } from './pages/main/main.js';
 class App {
   routes = [
@@ -15,6 +16,12 @@ class App {
   constructor() {
     window.addEventListener('hashchange', this.route.bind(this)); //обработка смены хэш
     this.route();
+  }
+
+  /* Отмена подписок */
+  destroy() {
+    onChange.unsubscribe(this.appState);
+    onChange.unsubscribe(this.state);
   }
 
   route() {
