@@ -62,7 +62,7 @@ export class MainView extends AbstractView {
   render() {
     const main = document.createElement('div');
     main.innerHTML = `
-    <h1>Найтено книг - ${this.state.numFound}</h1>
+    <h1>Найдено книг - ${this.state.numFound}</h1>
     `;
     main.append(new Search(this.state).render());
     main.append(new CardList(this.appState, this.state).render());
