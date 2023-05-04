@@ -23,7 +23,9 @@ export class CardList extends DivComponent {
     for (const card of this.parentState.list) {
       cardGrid.append(new Card(this.appState, card).render());
     }
-    this.el.append(new Pagination(this.parentState).render());
+    if (this.parentState.list.length) {
+      this.el.append(new Pagination(this.parentState).render());
+    }
 
     return this.el;
   }
