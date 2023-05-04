@@ -30,7 +30,7 @@ export class MainView extends AbstractView {
   /* Метод после обновления appState*/
   appStateHook(path) {
     if (path === 'favorites') {
-      this.render()
+      this.render();
     }
   }
 
@@ -39,7 +39,7 @@ export class MainView extends AbstractView {
       this.state.loading = true;
       const data = await this.loadList(
         this.state.searchQuery,
-        this.state.offset
+        this.state.offset,
       );
       this.state.loading = false;
       this.state.numFound = data.numFound;
@@ -54,7 +54,7 @@ export class MainView extends AbstractView {
   /* загрузка книг */
   async loadList(q, offset) {
     const res = await fetch(
-      `https://openlibrary.org/search.json?q=${q}&offset=${offset}`
+      `https://openlibrary.org/search.json?q=${q}&offset=${offset}`,
     );
     return res.json();
   }

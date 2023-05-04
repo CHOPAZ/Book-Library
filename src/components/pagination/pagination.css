@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.pagination__item {
+  display: flex;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.pagination__item:visited {
+  color: var(--black);
+}
+
+.pagination__item:hover {
+  font-weight: 700;
+}

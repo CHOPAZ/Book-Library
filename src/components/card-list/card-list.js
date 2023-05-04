@@ -1,5 +1,7 @@
 import { DivComponent } from '../../common/div-component';
 import { Card } from '../card/card';
+import { Pagination } from '../pagination/pagination';
+
 import './card-list.css';
 
 export class CardList extends DivComponent {
@@ -15,13 +17,13 @@ export class CardList extends DivComponent {
       this.el.innerHTML = `<div class="card-list__loader">Загрузка...</div>`;
       return this.el;
     }
-
-    const cardGrid = document.createElement('div')
+    const cardGrid = document.createElement('div');
     cardGrid.classList.add('card-grid');
-    this.el.append(cardGrid)
+    this.el.append(cardGrid);
     for (const card of this.parentState.list) {
-      cardGrid.append(new Card(this.appState, card).render())
+      cardGrid.append(new Card(this.appState, card).render());
     }
+    this.el.append(new Pagination(this.parentState).render());
 
     return this.el;
   }
