@@ -4,6 +4,7 @@ import onChange from 'on-change';
 import { Header } from '../../components/header/header.js';
 import { Search } from '../../components/search/search.js';
 import { CardList } from '../../components/card-list/card-list.js';
+
 export class MainView extends AbstractView {
   state = {
     list: [], //
@@ -18,6 +19,7 @@ export class MainView extends AbstractView {
     this.appState = appState;
     this.appState = onChange(this.appState, this.appStateHook.bind(this));
     this.state = onChange(this.state, this.stateHook.bind(this));
+    // this.state = onChange(this.state, this.offsetHook.bind(this));
     this.setTitle('Поиск книг');
   }
 
@@ -35,7 +37,7 @@ export class MainView extends AbstractView {
   }
 
   async stateHook(path) {
-    if (path === 'searchQuery') {
+    if (path === 'searchQuery' || path === 'offset') {
       this.state.loading = true;
       const data = await this.loadList(
         this.state.searchQuery,
@@ -44,6 +46,7 @@ export class MainView extends AbstractView {
       this.state.loading = false;
       this.state.numFound = data.numFound;
       this.state.list = data.docs;
+      console.log(this.state.list.length);
     }
 
     if (path === 'list' || path === 'loading') {

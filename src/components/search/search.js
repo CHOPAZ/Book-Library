@@ -30,13 +30,15 @@ export class Search extends DivComponent {
 
     `;
     /* вызов search при нажатии на кнопку поиск */
-    this.el.querySelector('button').addEventListener('click', this.search.bind(this))
+    this.el
+      .querySelector('button')
+      .addEventListener('click', this.search.bind(this));
     /* вызов search при нажатии на Enter */
     this.el.querySelector('input').addEventListener('keydown', (event) => {
       if (event.code == 'Enter') {
-        this.search()
+        this.search();
       }
-    })
+    });
     return this.el;
   }
 }

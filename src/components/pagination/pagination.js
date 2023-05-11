@@ -2,24 +2,46 @@ import { DivComponent } from '../../common/div-component';
 import './pagination.css';
 
 export class Pagination extends DivComponent {
-  constructor(offsetState) {
+  constructor(state) {
     super();
-    this.offsetState = offsetState.offset;
+    this.state = state;
+  }
+
+  /* изменение offset ++ */
+  upPagination() {
+    this.state.offset += 1;
+  }
+
+  /* изменение offset -- */
+  downPagination() {
+    if (this.state.offset === 0) {
+      return;
+    }
+    this.state.offset -= 1;
   }
 
   render() {
     this.el.classList.add('pagination');
     this.el.innerHTML = `
-        <a href="#" class="pagination__item">
+        <button class="pagination__item pagination-back">
           <img src="/static/arrow-left.svg" alt="arrow-left" />
-          <p>Предыдущая страница</p>
-        </a>
-        <a href="#" class="pagination__item">
-        <p>Следующая страница</p>
-        <img src="/static/arrow-rigth.svg" alt="arrow-right" />
-        </a>
+          <div>Предыдущая страница</div>
+        </button>
+        <button class="pagination__item pagination-next">
+          <div>Следующая страница</div>
+          <img src="/static/arrow-rigth.svg" alt="arrow-right" />
+        </button>
     `;
-    console.log(this.offsetState);
+    /* вызов downPagination при нажатии на кнопку Предыдущая страница */
+    this.el
+      .querySelector('.pagination-back')
+      .addEventListener('click', this.downPagination.bind(this));
+
+    /* вызов upPagination при нажатии на кнопку Следующая страница */
+    this.el
+      .querySelector('.pagination-next')
+      .addEventListener('click', this.upPagination.bind(this));
+
     return this.el;
   }
 }
